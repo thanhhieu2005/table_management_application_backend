@@ -1,13 +1,10 @@
-package com.example.table_management_application.repository;
+package com.example.table_management_application.table;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.example.table_management_application.models.table.TableEntity;
-import com.example.table_management_application.models.table.TableStatus;
 
 @Repository
 public interface TableRepository extends JpaRepository<TableEntity, Long> {

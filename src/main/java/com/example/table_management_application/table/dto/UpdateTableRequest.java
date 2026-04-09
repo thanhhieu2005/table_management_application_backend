@@ -1,4 +1,4 @@
-package com.example.table_management_application.dto.table;
+package com.example.table_management_application.table.dto;
 
 public class UpdateTableRequest {
   private Long id;

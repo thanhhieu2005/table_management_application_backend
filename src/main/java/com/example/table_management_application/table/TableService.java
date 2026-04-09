@@ -1,4 +1,4 @@
-package com.example.table_management_application.service;
+package com.example.table_management_application.table;
 
 import java.util.List;
 
@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.table_management_application.dto.table.UpdateTableRequest;
 import com.example.table_management_application.exception.ResourceNotFoundException;
-import com.example.table_management_application.models.table.TableEntity;
-import com.example.table_management_application.models.table.TableStatus;
-import com.example.table_management_application.repository.TableRepository;
+import com.example.table_management_application.table.dto.UpdateTableRequest;
 
 @Service
 public class TableService {

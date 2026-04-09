@@ -1,4 +1,4 @@
-package com.example.table_management_application.models.table;
+package com.example.table_management_application.table;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
