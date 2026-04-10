@@ -27,7 +27,9 @@ public class CustomUserDetails implements UserDetails {
 
         // add role
         for (RoleEnity role : user.getRoles()) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
+            // Role names are stored with the "ROLE_" prefix (e.g. "ROLE_ADMIN"),
+            // so use them directly — do NOT add "ROLE_" again.
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
 
             // add permissions
             for (Permission permission : role.getPermissions()) {

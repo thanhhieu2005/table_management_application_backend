@@ -10,6 +10,8 @@ import com.example.table_management_application.auth.dto.AuthResponse;
 import com.example.table_management_application.auth.dto.LoginRequest;
 import com.example.table_management_application.auth.dto.RegisterRequest;
 
+import jakarta.servlet.http.HttpServletResponse;
+
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -18,12 +20,17 @@ public class AuthController {
   private AuthService authService;
 
   @PostMapping("/login")
-  public AuthResponse login(@RequestBody LoginRequest request) {
-    return authService.login(request);
+  public AuthResponse login(@RequestBody LoginRequest request, HttpServletResponse response) {
+    return authService.login(request, response);
   }
 
   @PostMapping("/register")
-  public AuthResponse register(@RequestBody RegisterRequest request) {
-    return authService.register(request);
+  public AuthResponse register(@RequestBody RegisterRequest request, HttpServletResponse response) {
+    return authService.register(request, response);
+  }
+
+  @PostMapping("/logout")
+  public void logout(HttpServletResponse response) {
+    authService.logout(response);
   }
 }
