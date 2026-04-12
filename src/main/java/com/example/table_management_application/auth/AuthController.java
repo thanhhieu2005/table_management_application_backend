@@ -1,6 +1,8 @@
 package com.example.table_management_application.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.table_management_application.auth.dto.AuthResponse;
 import com.example.table_management_application.auth.dto.LoginRequest;
 import com.example.table_management_application.auth.dto.RegisterRequest;
+import com.example.table_management_application.security.custom.CustomUserDetails;
+import com.example.table_management_application.user.dto.UserResponse;
 
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -32,5 +36,10 @@ public class AuthController {
   @PostMapping("/logout")
   public void logout(HttpServletResponse response) {
     authService.logout(response);
+  }
+
+  @GetMapping("/me")
+  public UserResponse getMe(@AuthenticationPrincipal CustomUserDetails userDetails) {
+    return authService.getMe(userDetails);
   }
 }
